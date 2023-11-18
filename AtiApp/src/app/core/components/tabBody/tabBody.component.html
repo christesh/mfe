@@ -1,0 +1,57 @@
+<div class="tabset-main">
+    <span class="tab active" [ngClass]="{active: setSelectedMainSection == 1 }"
+      (click)="showClassic()">کلاسیک</span>
+    <span class="tab" [ngClass]="{active: setSelectedMainSection == 2 }"
+    (click)="showTechnical()">تکنیکال</span>
+  </div>
+<section class="layout-right ver">
+   
+    <div class="layout-right-L full"  >
+        <div class="layout-right-LB">
+            <div class="market-watch"
+                 >
+                <div class="header-tab">
+                    <span class="tab active">بازار آتــــی</span>
+                </div>
+                <div class="tabBody technical">
+                    <table class="market-watch-table" >
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>نماد</th>
+                                <th>تقاضا</th>
+                                <th>عرضه</th>
+                                <th>معامله</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-click="selectContract(item)" *ngFor="let item of contractList" >
+                                <td>
+                                    <i class="icon-trade" title="سفارش پیشرفته" ng-click="commonMarketBuy(item)"></i>
+                                </td>
+
+                                <td flex="2" ng-click="quickOrder(item);">{{item.Symbol}}</td>
+                                <td flash-cell="item.pushMarketWatchData.BidPrice1" ng-dblclick="pinPrice(item.pushMarketWatchData.BidPrice1)" class="top">{{item.pushMarketWatchData.BidPrice1 | number}}</td>
+                                <td flash-cell="item.pushMarketWatchData.AskPrice1" ng-dblclick="pinPrice(item.pushMarketWatchData.AskPrice1)" class="bottom">{{item.pushMarketWatchData.AskPrice1 | number}}</td>
+                                <td flash-cell="item.pushMarketWatchData.LastTradedPrice" ng-dblclick="pinPrice(item.pushMarketWatchData.LastTradedPrice)">{{item.pushMarketWatchData.LastTradedPrice | number}}</td>
+
+                            </tr>
+                            <tr ng-repeat-end ng-if="item.quickOrder" class="selected">
+                                <td colspan="5" class="no-padding">
+                                    <div ng-include="'/App/Views/CommonMarket/superQuickOrder.html?v=' + $root.appVersion"></div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      
+    </div>
+
+
+
+    <span class="middle-btn" ng-click="$root.hideLayouRight=!$root.hideLayouRight" ></span>
+
+</section>

@@ -1,0 +1,11 @@
+<section class="appMenu ">
+  <label class="listMenuHeader" (click)="showMenu = !showMenu">
+      <i></i>
+      <span *ngIf="selectedMenu">
+          {{selectedMenu.title}}
+      </span>
+  </label>
+  <div class="showMenuOnline" [ngClass]="{show: showMenu }">
+      <a *ngFor="let menu of menus" (click)="clickMenu(menu)" [ngClass]="getClass(menu)"  class="menuItem" >{{menu.title}}</a>
+  </div>
+</section>

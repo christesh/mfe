@@ -1,0 +1,21 @@
+<div >
+  <label class="account-user normal">
+      مانده قابل معامله:
+      <span class="amount ">{{bourseBalance  | number }}</span>
+  </label>
+  <div class="switch-account" ng-click="showOpenPositionPad()">
+      <div class="up">
+          <span class="{{firstCommodity.CommodityCssName}}">
+              <i></i>
+          </span>
+          <label class="account-user">
+              <span class="top"> موقعیت قابل اخذ خرید:<i flash-cell="firstCommodity.TotalBuyOpenPositionLimit">{{firstCommodity.TotalBuyOpenPositionLimit  | number}}</i></span>
+              <span class="bottom"> موقعیت قابل اخذ فروش:<i flash-cell="firstCommodity.TotalSellOpenPositionLimit">{{firstCommodity.TotalSellOpenPositionLimit  | number}}</i></span>
+          </label>
+          <label class="account-user">
+              <span class="top">موقعیت باز خرید:<i flash-cell="firstCommodity.TotalBuyOpenPosition">{{firstCommodity.TotalBuyOpenPosition  | number}}</i></span>
+              <span class="bottom">موقعیت باز فروش:<i flash-cell="firstCommodity.TotalSellOpenPosition">{{firstCommodity.TotalSellOpenPosition  | number }}</i></span>
+          </label>
+      </div>
+  </div>
+</div>
